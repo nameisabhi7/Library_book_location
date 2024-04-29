@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Book Location Finder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        h1 {
+            color: #333333;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #cccccc;
+            border-radius: 3px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #ffffff;
+            border: none;
+            border-radius: 3px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .book-info {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .book-info p {
+            margin: 10px 0;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <h1>Library Book Location Finder</h1>
+    <form method="post">
+        <label for="book_title">Enter the title of the book:</label>
+        <input type="text" id="book_title" name="book_title" required>
+        <input type="submit" value="Find Location">
+    </form>
+    {% if book_info != "Book not found" %}
+    <div class="book-info">
+        <p><strong>Title:</strong> {{ book_info['Title'] }}</p>
+        <p><strong>Author:</strong> {{ book_info['Author'] }}</p>
+        <p><strong>Location:</strong> {{ book_info['Location'] }}</p>
+        <p><strong>Genre:</strong> {{ book_info['Genre'] }}</p>
+        <p><strong>Publication Year:</strong> {{ book_info['Publication Year'] }}</p>
+        <p><strong>ISBN:</strong> {{ book_info['ISBN'] }}</p>
+        <p><strong>Publisher:</strong> {{ book_info['Publisher'] }}</p>
+    </div>
+    {% else %}
+    <p>{{ book_info }}</p>
+    {% endif %}
+</body>
+</html>
